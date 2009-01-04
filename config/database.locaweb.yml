@@ -1,0 +1,8 @@
+production:
+  adapter: mysql
+  encoding: utf8
+  database: anyware_techno1
+  username: anyware_techno1
+  password: anymysql31
+  host: mysql01.anyware-technologies.com.br
+  pool: 5

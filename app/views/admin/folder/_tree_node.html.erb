@@ -1,0 +1,19 @@
+<% if folder then @folder = folder end%>
+<% if @folder.children.size > 0 || @folder.pages.size > 0 %>
+<ul id="folder_<%= @folder.id %>_ul">
+<% for subfolder in @folder.children%>
+	<%= render :partial => "tree_node_folder", :locals => {:folder => subfolder} %>
+<% end%>
+<% for page in @folder.pages %>
+	<li id="page_<%= page.id %>">
+		<%= image_tag "admin/tree/list.png" %>
+		<%= link_to_remote page.name , {
+			:update => "editor",
+			:url => {:controller => "page", :action => "editor", :id => page.id},
+			:before => "tree.setSelected(event);loading()",
+			:complete => "unloading();xinha_editors.text_editor.setHTML($('page_html').value)"
+			},
+			:html=>{:oncontextmenu => "return showMenu(event, 'page_menu')"} %></li>
+<% end %>
+</ul>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="tabs">
+    <ul>
+        <li style="margin-left: 1px" id="main_tab" class="tabHeaderActive"><a href="#" onClick="toggleTab('main_tab')"><span>Geral</span></a></li>
+        <li id="folders_tab"><a href="javascript:void(0)" onClick="toggleTab('folders_tab')" ><span>Folders</span></a></li>
+        <li id="pages_tab"><a href="javascript:void(0)" onclick="toggleTab('pages_tab')"><span>Pages</span></a></li>
+    </ul>
+    </div>
+    <div id="tabscontent">
+        <div id="main_tab_content" class="tabContent" style="">
+				<div>
+					<%if @resource.id then%>
+						<%= render :partial => 'edit' %>
+					<% else %>
+						<%= render :partial => 'new'%>
+					<% end %>
+				</div>
+        </div>
+
+        <div id="folders_tab_content" class="tabContent" style="display:none;">
+            <br /><div></div>
+        </div>
+
+        <div id="pages_tab_content" class="tabContent" style="display:none;">
+            <br /><div></div>
+        </div>
+    </div>
+</div>

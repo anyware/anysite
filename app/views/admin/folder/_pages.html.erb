@@ -1,0 +1,16 @@
+<div id="folder_pages">
+<ul id="folder_pages_sortable_list" class="sortable">
+	<% @folder.pages.each do |page| %>    
+	  <li id="folder_page_<%= page.id %>" ><div class="handle"><%= image_tag "admin/tree/list.png"%>&nbsp;<%= page.name %></div>
+		<%= link_to_remote image_tag("admin/tree/trash.png"),
+			:url => {:controller =>"page", :action => "destroy" , :id => page.id},
+			:before => "loading()",
+			:complete => "unloading();"  %><br clear="all"></li>
+	<% end %>
+</ul>
+</div>
+<%= sortable_element('folder_pages_sortable_list', 
+	:url => {:controller => 'page', :action => :update_positions},
+	:before => "loading()",
+	:complete => "unloading();refreshFolder('#{@folder.id}')",
+	:handle => "handle") %>

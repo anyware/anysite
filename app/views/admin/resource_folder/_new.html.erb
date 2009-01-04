@@ -1,0 +1,5 @@
+<form onsubmit='return false;'>
+  <%= render :partial => 'form' %>
+  <%= text_field_tag 'target_id', 'OTO' %>
+<%= submit_to_remote 'Criar', 'Criar', :url => {:action => 'create'}, :before => 'loading()' , :complete => 'unloading();' %>
+</form>

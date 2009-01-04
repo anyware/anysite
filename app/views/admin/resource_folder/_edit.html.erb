@@ -1,0 +1,4 @@
+<form onsubmit='return false;'>
+  <%= render :partial => 'form' %>
+  <%= submit_to_remote 'Salvar', 'Salvar', :url => {:action => 'update', :id => @resource_folder}, :update => 'main_tab_content', :before => 'loading()' , :complete => 'unloading();treeFolderUpdate()' %>
+</form>
