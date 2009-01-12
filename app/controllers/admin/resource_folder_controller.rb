@@ -12,13 +12,17 @@ class Admin::ResourceFolderController < Admin::BaseAdminController
   end
   
   def create
-    @resource_folder = ResourceFolder.new(params[:resource_folder])
-    @resource_folder.parent = ResourceFolder.find_by_id(params[:target_id])
-    if @resource_folder.parent && @resource_folder.save
+    parent = ResourceFolder.find_by_id(params[:target_id])
+    @resource_folder = parent.children.create(params[:resource_folder])
+    if parent && @resource_folder.save
       flash[:notice] = 'Resource Folder was successfully created.'
+      #render :update do |page|
+      #  page.replace_html 'main_tab_content', :partial => 'edit'
+      #  page.replace_html 'resource_folder_'+ @resource_folder.parent.id.to_s+'_ul', :partial => 'tree_node', :locals => {:folder => @resource_folder.parent}
+      #end
       render :update do |page|
         page.replace_html 'main_tab_content', :partial => 'edit'
-        page.replace_html 'resource_folder_'+ @resource_folder.parent.id.to_s+'_ul', :partial => 'tree_node', :locals => {:folder => @resource_folder.parent}
+        page.call 'refreshFolder', @resource_folder.parent.id.to_s
       end
     else
       render :action => 'new'

@@ -7,6 +7,13 @@
 list-style-type: none;
 padding-left: 10px;
 margin-bottom: 3px;
+font-family: arial;
+font-size:11px;
+}
+
+.treeview li a{
+	text-decoration: none;
+	color: black;
 }
 
 .treeview li.submenu_closed{ /* Style for LI that contains sub lists (other ULs). */

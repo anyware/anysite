@@ -14,11 +14,16 @@ class Admin::ResourceController < Admin::BaseAdminController
   def create
     @resource = Resource.new(params[:resource])
     @resource.resource_folder = ResourceFolder.find_by_id(params[:target_id])
-    if @resource.resource_folder && @resource.save
-      flash[:notice] = 'Resource was successfully created.'
-      redirect_to :action => '_edit', :id => @resource
-    else
-      render :action => 'new'
+    responds_to_parent do
+      render :update do |page|
+        if @resource.resource_folder && @resource.save
+          page.replace_html 'main_tab_content', :partial => 'edit', :object => @resource
+          page.call 'unloading'
+          page.call 'tree.refreshResourceFolder', @resource.resource_folder.id
+        else
+          page.alert('error')
+        end
+      end
     end
   end
   
@@ -28,12 +33,23 @@ class Admin::ResourceController < Admin::BaseAdminController
   
   def update
     @resource = Resource.find(params[:id])
-    if @resource.update_attributes(params[:resource])
-      flash[:notice] = 'Resource was successfully updated.'
-      redirect_to :action => '_edit', :id => @resource
-    else
-      render :action => 'edit'
+    responds_to_parent do
+      render :update do |page|
+        if @resource.update_attributes(params[:resource])
+          page.replace_html 'main_tab_content', :partial => 'edit', :object => @resource
+          page.call 'unloading'
+          page.call 'tree.refreshResourceFolder', @resource.resource_folder.id
+        else
+          page.alert('error')
+        end
+      end
     end
+  end
+  
+  def upload
+    @uploaded = Resource.new(params[:resource])
+    @resource = Resource.find(params[:id])
+    @resource.update_attributes(params[:resource])
   end
   
   def update_positions

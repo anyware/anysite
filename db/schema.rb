@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 20090111185618) do
 
   create_table "folders", :force => true do |t|
     t.string   "name",        :null => false
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "resource_folder_id"
     t.integer  "position",                                  :null => false
     t.string   "filetype",           :default => "unknown", :null => false
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   create_table "templates", :force => true do |t|

@@ -1,5 +1,13 @@
-<form onsubmit="return false;">
-  <%= render :partial => 'form' %>
-  <%= submit_to_remote 'Salvar', 'Salvar', :url => {:controller => 'resource', :action => 'update', :id => @resource}, :update => 'main_tab_content', :before => 'loading()' , :complete => 'unloading();treeFolderUpdate()' %>
-</form>
 
+
+<% form_for(:resource, :url => { :action => "update", :id => @resource }, :html => { :multipart => true, :target => 'upload_frame' }) do |form| %>
+	<%= render :partial => 'form'%>
+	<% if @resource.filename != nil %>
+	<p><%= image_tag @resource.public_filename('s100') %></p>
+	<p><%= image_tag @resource.public_filename('s200') %></p>
+	<p><%= image_tag @resource.public_filename %></p>
+	<% end -%>
+	<%= submit_tag 'Update'%>
+<% end %>
+
+<iframe id="upload_frame" name='upload_frame' style="width:1px;height:1px;border:0px" src="about:blank"></iframe>

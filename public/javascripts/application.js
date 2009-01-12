@@ -4,7 +4,6 @@
 /* Call all function on onload off site page */
 Event.observe(window, 'load', fixedMenuIEOver, false);
 
-
 /**
  * Function to fixed the IE problem with 'over' 
  */
@@ -28,4 +27,6 @@ function fixedMenuIEOver() {
 
 function init_admin(){
 	tree = new Tree();
+	editor = new Editor();
+	tab = new Tab();
 }

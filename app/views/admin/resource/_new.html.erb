@@ -1,7 +1,10 @@
 <h1>New Resource</h1>
 
-<form onsubmit='return false;'>
-  <%= render :partial => 'form' %>
-  <%= text_field_tag 'target_id', 'OTO' %>
-<%= submit_to_remote 'Criar', 'Criar', :url => {:controller => 'resource', :action => 'create'}, :update => 'main_tab_content', :before => 'loading()' , :complete => 'unloading();treeFolderUpdateAtCreate()' %>
-</form>
+
+<% form_for(:resource, :url => { :action => "create" }, :html => { :multipart => true, :target => 'upload_frame' }) do |form| %>
+	<%= text_field_tag 'target_id', 'OTO' %>
+	<%= render :partial => 'form'%>
+	<%= submit_tag 'Create'%>
+<% end %>
+
+<iframe id="upload_frame" name='upload_frame' style="width:1px;height:1px;border:0px" src="about:blank"></iframe>

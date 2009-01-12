@@ -1,13 +1,32 @@
-<% if @resource_folder.children.size > 0 %>
+<%# if resource_folder then @resource_folder = resource_folder end%>
+<% if @resource_folder.children.size > 0 || @resource_folder.resources.size > 0 %>
 <ul id="resource_folder_<%= @resource_folder.id %>_ul">
 <% for subfolder in @resource_folder.children%>
-	<li id="resource_folder_<%= subfolder.id %>" class="closed">
-		<%= link_to_remote image_tag("admin/tree/closed") , { :url => {:controller => "resource_folder" ,:action => "tree_node", :id => subfolder.id},:before => "if (!open_folder(this)){return false;}; loading();", :complete => "unloading()"} %>
-		<%= link_to_remote subfolder.name , {:update => "editor", :url => {:controller => "resource_folder", :action => "editor", :id => subfolder.id},:before => "setSelected(event);loading()", :complete => "unloading()"}, {:oncontextmenu => "return showMenu(event, 'resource_folder_menu')"} %>
+	<li id="resource_folder_<%= subfolder.id %>">
+		<%= link_to_remote image_tag("admin/tree/closed.png") , { 
+			:url => {:controller => "resource_folder" ,
+			:action => "tree_node",
+			:id => subfolder.id},
+			:before => "if (!tree.openResourceFolder('#{subfolder.id}')){return false;}; loading();",
+			:complete => "unloading()"} %>
+		<%= link_to_remote "#{subfolder.name} (#{subfolder.children.count}/#{subfolder.resources.count})" , {
+			:update => "editor",
+			:url => {:controller => "resource_folder", :action => "editor", :id => subfolder.id},
+			:before => "tree.setSelected(event);loading()",
+			:complete => "unloading()"},
+			{:oncontextmenu => "return showMenu(event, 'resource_folder_menu')"} %>
 	</li>
 <% end%>
 <% for resource in @resource_folder.resources %>
-	<li id="resource_<%= resource.id %>"><%= image_tag "admin/tree/list.png" %> <%= link_to_remote resource.name , {:update => "editor", :url => {:controller => "resource", :action => "editor", :id => resource.id}, :before => "setSelected(event);loading()", :complete => "unloading()"}, {:oncontextmenu => "return showMenu(event, 'page_menu')"} %></li>
+	<li id="resource_<%= resource.id %>">
+		<%= image_tag "admin/tree/list.png" %>
+		<%= link_to_remote resource.name , {
+			:update => "editor",
+			:url => {:controller => "resource", :action => "editor", :id => resource.id},
+			:before => "tree.setSelected(event);loading()",
+			:complete => "unloading();"
+			},
+			:html=>{:oncontextmenu => "return showMenu(event, 'resource_menu')"} %></li>
 <% end %>
 </ul>
 <% end %>

@@ -24,15 +24,25 @@ Rails::Initializer.run do |config|
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-  config.plugins = [ :acts_as_ordered_tree, :acts_as_list ]  
+  # config.plugins = [ :acts_as_ordered_tree, :acts_as_list, :attachment_fu ]  
 
+
+  # Specify gems that this application depends on. 
+  # They can then be installed with "rake gems:install" on new installations.
+  # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
+  # config.gem "bj"
+  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
+  # config.gem "aws-s3", :lib => "aws/s3"
+  # config.gem "paperclip", :version => '2.1.2'
+  config.gem "image_science", :version => '1.1.3'
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
-  # config.log_level = :debug
+  config.log_level = :debug
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!

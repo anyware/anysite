@@ -1,9 +1,15 @@
+var Tab = Class.create({
+  initialize: function() {
+    this.closedFolder = "/images/admin/tree/closed.png";
+	this.openedFolder = "/images/admin/tree/open.png";
+  },
+
 /*-----------------------------------------------------------
     Toggles element's display value
     Input: any number of element id's
     Output: none 
     ---------------------------------------------------------*/
-function toggleDisp() {
+ toggleDisp: function() {
     for (var i=0;i<arguments.length;i++){
         var d = $(arguments[i]);
         if (d.style.display == 'none')
@@ -11,7 +17,7 @@ function toggleDisp() {
         else
             d.style.display = 'none';
     }
-}
+  },
 /*-----------------------------------------------------------
     Toggles tabs - Closes any open tabs, and then opens current tab
     Input:     1.The number of the current tab
@@ -20,24 +26,35 @@ function toggleDisp() {
                     4.(optional)Pass in true or false whether or not to animate the open/close of the tabs
     Output: none 
     ---------------------------------------------------------*/
-function toggleTab(clicked_tab_id) {
-	var clicked_tab_content = $(clicked_tab_id+"_content");
-	var clicked_tab = $(clicked_tab_id);
-	if(!(clicked_tab_content.visible())){
-		var tabsContent = $('tabscontent').getElementsByClassName('tabContent');
-		for(i=0;i<tabsContent.length;i++){
-			var tabContent = tabsContent[i];
-			if(tabContent.visible()){
-				tabContent.hide();
+	toggleTab: function (clicked_tab_id) {
+		this.handleTextEditor(clicked_tab_id);
+		var clicked_tab_content = $(clicked_tab_id+"_content");
+		var clicked_tab = $(clicked_tab_id);
+		if(!(clicked_tab_content.visible())){
+			var tabsContent = $('tabscontent').getElementsByClassName('tabContent');
+			for(i=0;i<tabsContent.length;i++){
+				var tabContent = tabsContent[i];
+				if(tabContent.visible()){
+					tabContent.hide();
+				}
 			}
+			clicked_tab_content.show();
+			var tabs = clicked_tab.up().immediateDescendants();
+			for(i=0;i<tabs.length;i++){
+				tabs[i].removeClassName('tabHeaderActive');
+			}
+			clicked_tab.toggleClassName('tabHeaderActive');
 		}
-		clicked_tab_content.show();
-		var tabs = clicked_tab.up().immediateDescendants();
-		for(i=0;i<tabs.length;i++){
-			tabs[i].removeClassName('tabHeaderActive');
+	},
+	
+	handleTextEditor: function(tab_id){
+		if($(tab_id+'_content').select('#needTextEditor').size() == 0){
+			editor.hideTextEditor(false);
+		}else{
+			editor.showTextEditor();
 		}
-		clicked_tab.toggleClassName('tabHeaderActive');
 	}
+});
 	
 //	clicked_tab.addClassName('tabHeaderActive');
 	
@@ -76,4 +93,3 @@ function toggleTab(clicked_tab_id) {
             toggleDisp('tabContent'+num);
         }
     }*/
-}

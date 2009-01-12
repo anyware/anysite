@@ -16,7 +16,7 @@
 <body>
 	<div id="main">
 		<%= render :partial => '/site/templates/default/top' %>
-		<div>
+		<div id="menu">
 			<ul id="navmenu-h">
 				<%= render :partial => 'menu', :locals  => {:folders  => @folder.children} %>
 			</ul>
@@ -25,8 +25,8 @@
 			<%= yield %>
 		</div>
 		<br clear="all"/>
-		<div id="botton">
-			<div id="corpright">Anysite Lite - Powered by Anyware</div>
+		<div id="bottom">
+			<div id="corpright">Anyware Technologies 2007-2009 © All Rights Reserved - Powered by Anysite</div>
 		</div>
 	</div>
 </body>

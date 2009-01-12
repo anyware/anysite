@@ -1,5 +1,8 @@
 .DS_Store
 log/*.log
 tmp/**/*
+tmp/restart.txt
 config/database.yml
 db/*.sqlite3
+public/assets/*
+config/database.locaweb.yml

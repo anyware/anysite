@@ -11,16 +11,17 @@
 </ul>
 <ul id="any_files" class="treeview">
 	<li id="resource_folder_<%= @resource_home.id %>">
-		<%= link_to_remote image_tag("admin/tree/home") , { :url => {:controller => "resource_folder" ,:action => "tree_node", :id => @resource_home.id},:before => "if (!open_folder(this)){return false;}; loading();", :complete => "unloading()"} %>
-		<%= link_to_remote @resource_home.name , {:update => "editor", :url => {:controller => "resourcefolder" ,:action => "edit", :id => @resource_home.id},:before => "setSelected(event);loading()", :complete => "unloading()"}, {:oncontextmenu => "return showMenu(event, 'resource_folder_menu')"} %>
+		<%= link_to_remote image_tag("admin/tree/home.png") , { :url => {:controller => "resource_folder" ,:action => "tree_node", :id => @resource_home.id},:before => "if (!tree.openResourceFolder('#{@resource_home.id}')){return false;}; loading();", :complete => "unloading()"} %>
+		<%= link_to_remote @resource_home.name , {:update => "editor", :url => {:controller => "resourcefolder" ,:action => "edit", :id => @resource_home.id},:before => "tree.setSelected(event);loading()", :complete => "unloading()"}, {:oncontextmenu => "return showMenu(event, 'resource_folder_menu')"} %>
 	</li>
 </ul>
 </div>
 
+
 	<div id="editor_area">
 		<div id="editor">
 		</div>
-		<div id="editor_area_text_editor">
+		<div id="div_text_editor" style="visibility:hidden;display:;">
 			<textarea id="text_editor" name="text_editor"></textarea>
 		</div>
 	</div>
@@ -30,7 +31,7 @@
 	<div id="folder_menu" class="skin0" display:none>
 
 	<div><%= link_to_remote "Nova Pasta" , :update => "editor", :url => {:controller => "folder", :action => "editor"}, :complete => "setTargetId()" %></div>
-	<div><%= link_to_remote "Nova Página" , :update => "editor", :url => {:controller => "page", :action => "new"}, :complete => "setTargetId()" %></div>
+	<div><%= link_to_remote "Nova Página" , :update => "editor", :url => {:controller => "page", :action => "editor"}, :complete => "setTargetId()" %></div>
 	<hr>
 	<div class="menuitems" url="mailto:dynamicdrive@yahoo.com">Email Us</div>
 	</div>

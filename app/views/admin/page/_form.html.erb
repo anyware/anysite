@@ -10,7 +10,8 @@
 <p><label for="page_description">Description</label><br/>
 <%= text_field 'page', 'description'  %></p>
 
-<%= text_area 'page', 'html', {:style  => "display:none"}  %>
+<div id="needTextEditor" class="hide"></div>
+<%= text_area 'page', 'html', {:style  => "display:none;"}  %>
 
 <!--[eoform:page]-->
 

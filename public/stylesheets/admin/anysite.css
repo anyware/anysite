@@ -35,11 +35,13 @@ img {
 	width:600px;
 }
 
-#editor_area_text_editor{
+#div_text_editor{
 	width: 600px;
-	display:none;
 }
 #text_editor{
 	width: 600px;
-	height: 400px;
+}
+
+.hide {
+	display:none;
 }
