@@ -1,8 +1,0 @@
-<div id="folder_folders">
-<ul id="folder_folders_sortable_list" class="sortable">
-	<% @folder.children.each do |folder| %>    
-	  <li id="sub_folder_<%= folder.id %>"><div class="handle"><%= image_tag "admin/tree/open.png"%>&nbsp;<%= folder.name %></div><%= link_to_remote image_tag("admin/tree/trash.png"), :url => {:action => "destroy" , :id => folder.id}, :before => "loading()", :complete => "unloading();"  %><br clear="all"/></li>
-	<% end %>
-</ul>
-</div>
-<%= sortable_element('folder_folders_sortable_list', :url => {:action => :update_positions},:complete => "refreshFolder('#{@folder.id}')", :handle => "handle") %>

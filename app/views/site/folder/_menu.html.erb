@@ -1,7 +1,0 @@
-<% for folder in folders%>
-	<% if !folder.menu_title.blank? %>
-	<li><a href="#"><%= folder.menu_title %></a>
-		<%= render :partial => 'sub_menu', :locals => {:folders => folder.children} %>
-	</li>
-	<% end -%>
-<% end -%>

@@ -1,9 +1,0 @@
-<form id="toto" onsubmit="return false;">
-  <%= render :partial => 'form' %>
-  <%= submit_to_remote 'Salvar', 'Salvar',
-	:url => {:action => 'update', :id => @page},
-	:update => 'main_tab_content',
-	:before => "loading();$('page_html').value=xinha_editors.text_editor.getHTML()" ,
-	:complete => "unloading();tree.refreshFolder('#{@page.folder.id}')" %>
-</form>
-

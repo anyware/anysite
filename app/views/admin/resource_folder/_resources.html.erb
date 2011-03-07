@@ -1,8 +1,0 @@
-<div id="resource_folder_resources">
-<ul id="resource_folder_resources_sortable_list" class="sortable">
-	<% @resource_folder.resources.each do |resource| %>    
-	  <li id="resource_folder_resource_<%= resource.id %>"><div class="handle"><%= image_tag "admin/tree/open.png"%>&nbsp;<%= resource.name %></div><%= link_to_remote image_tag("admin/tree/trash.png"), :url => {:controller => "resource", :action => "destroy" , :id => resource.id}, :before => "loading()", :complete => "unloading();"  %><br clear="all"/></li>
-	<% end %>
-</ul>
-</div>
-<%= sortable_element('resource_folder_resources_sortable_list', :url => {:controller => 'resource', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>
