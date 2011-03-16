@@ -1,0 +1,8 @@
+<h1>New page</h1>
+
+<form onsubmit='return false;'>
+  <%= render :partial => 'form' %>
+  <%= text_field_tag 'target_id', 'OTO' %>
+<%= submit_to_remote 'Criar', 'Criar', :url => {:controller => 'page', :action => 'create'}, :update => 'main_tab_content', :before => 'loading()' , :complete => 'unloading();treeFolderUpdateAtCreate()' %>
+</form>
+

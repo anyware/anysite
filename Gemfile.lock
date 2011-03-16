@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
+    acts_as_list (0.1.2)
     ancestry (1.2.3)
       activerecord (>= 2.2.2)
     arel (2.0.8)
@@ -99,6 +100,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   ancestry
   devise
   factory_girl

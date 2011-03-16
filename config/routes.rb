@@ -1,10 +1,4 @@
 Anysite::Application.routes.draw do
-  
-
-  
-
-  
-
   # resources :templates
 
   namespace :admin do
@@ -14,8 +8,11 @@ Anysite::Application.routes.draw do
       resources :contents
       resources :folders
       resources :resources
-    end
-  
+      match 'index' => 'admin#index'
+  end
+    
+  # match 'admin' => 'admin/admin#index'
+
   devise_for :users
 
   # The priority is based upon order of creation:

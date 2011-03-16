@@ -5,10 +5,12 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'devise'
 gem 'inherited_resources'
 gem 'ancestry'
+gem 'acts_as_list'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -34,4 +36,9 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.5.0'
   gem 'factory_girl'
   gem 'inherited_resources_views'
+	gem 'sqlite3'
 end
+
+#group :production do 
+#	gem 'mysql2'
+#end

@@ -1,0 +1,52 @@
+
+		
+		
+		<div id="anyware_logo">
+			<div id = "animated_anyware_logo" style="display:none"><img src='/images/logo_animated_75.gif' /></div>
+		</div>
+		<div id="anysite_top"></div>
+		<div id="navigation_menu" class="treeview">
+		<ul id="any_folders" class="treeview">
+			<li id="folder_<%= @homepage.id %>">
+				<%= link_to image_tag("admin/tree/home.png"), admin_content_path(@homepage) %>
+				<%= link_to @homepage.name , admin_content_path(@homepage), :remote => true %>
+			</li>
+		</ul>
+		<ul id="any_files" class="treeview">
+			<li id="resource_folder_<%= @resource_home.id %>">
+				<%= link_to image_tag("admin/tree/home.png"), admin_content_path(@homepage) %>
+				<%= link_to @resource_home.name, admin_content_path(@homepage) %>
+			</li>
+		</ul>
+		</div>
+
+
+			<div id="editor_area">
+				<div id="editor">
+				</div>
+				<div id="div_text_editor" style="visibility:hidden;display:;">
+					<textarea id="text_editor" name="text_editor"></textarea>
+				</div>
+			</div>
+
+
+
+			<div id="folder_menu" class="skin0" display:none>
+
+			<div><%= link_to "Nova Pasta" , :update => "editor", :url => {:controller => "folder", :action => "editor"}, :complete => "setTargetId()" %></div>
+			<div><%= link_to "Nova Página" , :update => "editor", :url => {:controller => "page", :action => "editor"}, :complete => "setTargetId()" %></div>
+			<hr>
+			<div class="menuitems" url="mailto:dynamicdrive@yahoo.com">Email Us</div>
+			</div>
+
+			<div id="resource_folder_menu" class="skin0" display:none>
+			<div><%= link_to "Novo Resource Folder" , :update => "editor", :url => {:controller => "resource_folder", :action => "editor"}, :complete => "setTargetId()" %></div>
+			<div><%= link_to "Novo Recurso" , :update => "editor", :url => {:controller => "resource", :action => "editor"}, :complete => "setTargetId()" %></div>
+			<hr>
+			<div class="menuitems" url="mailto:dynamicdrive@yahoo.com">Email Us</div>
+			</div>
+
+			<input id="selected_object" type='text' value="" style="display:none">
+			<input id="right_clicked_item" type='text' value="" style="display:none">
+
+
