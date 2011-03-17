@@ -9,7 +9,7 @@
 		<ul id="any_folders" class="treeview">
 			<li id="folder_<%= @homepage.id %>">
 				<%= link_to image_tag("admin/tree/home.png"), admin_content_path(@homepage) %>
-				<%= link_to @homepage.name , admin_content_path(@homepage), :remote => true %>
+				<%= link_to @homepage.name , admin_content_path(@homepage), :remote => true, :id => 'abc' %>
 			</li>
 		</ul>
 		<ul id="any_files" class="treeview">

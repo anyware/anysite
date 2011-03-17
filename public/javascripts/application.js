@@ -26,7 +26,16 @@ function fixedMenuIEOver() {
 }
 
 function init_admin(){
-	tree = new Tree();
-	editor = new Editor();
-	tab = new Tab();
+	// tree = new Tree();
+	// editor = new Editor();
+	// tab = new Tab();
+	document.on('ajax:failure', 'a', function(response) {
+		$('editor_area').update(response.memo.responseText);
+	});
+		
+
+		
 }
+
+
+

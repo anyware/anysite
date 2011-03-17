@@ -7,16 +7,16 @@
     <div id="tabscontent">
         <div id="main_tab_content" class="tabContent" style="">
 				<div>
-					<%if @page.id then%>
-						<%= render :partial => 'edit' %>
-					<% else %>
-						<%= render :partial => 'new'%>
-					<% end %>
+					<%#if @content then%>
+						<%#= render :partial => 'edit' %>
+					<%# else %>
+						<%#= render :partial => 'new'%>
+					<%# end %>
 				</div>
         </div>
 
         <div id="resources_tab_content" class="tabContent" style="display:none;">
-            <br /><div><%= render :partial => 'resources' %></div>
+            <br /><div><%#= render :partial => 'resources' %></div>
         </div>
     </div>
 </div>
