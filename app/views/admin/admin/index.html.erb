@@ -7,9 +7,9 @@
 		<div id="anysite_top"></div>
 		<div id="navigation_menu" class="treeview">
 		<ul id="any_folders" class="treeview">
-			<li id="folder_<%= @homepage.id %>">
-				<%= link_to image_tag("admin/tree/home.png"), admin_content_path(@homepage) %>
-				<%= link_to @homepage.name , admin_content_path(@homepage), :remote => true, :id => 'abc' %>
+			<li id="content_<%= @homepage.id %>">
+				<%= link_to image_tag("admin/tree/home.png"), {:controller => "contents", :action => "tree_node", :id => @homepage.id}, :remote => true, :class => "tree_node_icon" %>
+				<%= link_to @homepage.name , edit_admin_content_path(@homepage), :remote => true, :class => "tree_node" %>
 			</li>
 		</ul>
 		<ul id="any_files" class="treeview">

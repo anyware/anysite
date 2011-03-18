@@ -7,7 +7,6 @@ class CreateContents < ActiveRecord::Migration
       t.integer :updated_by
       t.integer :page_id
       t.integer :position
-      t.string :name
 
       t.timestamps
     end

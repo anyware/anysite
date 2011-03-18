@@ -1,7 +1,13 @@
 var Tree = Class.create({
   initialize: function() {
     this.closedFolder = "/images/admin/tree/closed.png";
-	this.openedFolder = "/images/admin/tree/open.png";
+		this.openedFolder = "/images/admin/tree/open.png";
+		document.on('ajax:before', '.tree_node_icon', function(event, container) {
+			if(container.up().hasClassName("opened")){
+				event.stop();
+				tree.openFolder(container.up().id.replace(/.*_/g, ""));
+			}
+		});
   },
 
 
@@ -9,7 +15,7 @@ var Tree = Class.create({
 		if(tree_type != null )
 			folder = $(tree_type+'_folder_'+id);
 		else
-			folder = $('folder_'+id);
+			folder = $('content_'+id);
 		if($(folder).hasClassName("opened")){
 			$(folder).removeClassName("opened")
 			$(folder).addClassName("closed")

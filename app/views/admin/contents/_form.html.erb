@@ -1,17 +1,9 @@
-<%= error_messages_for 'page' %>
-
 <!--[form:page]-->
-<p><label for="page_name">Name</label><br/>
-<%= text_field 'page', 'name'  %></p>
+<p><label for="content_name">Name</label><br/>
+<%= text_field 'content', 'name'  %></p>
 
-<p><label for="page_menu_title">Menu Title</label><br/>
-<%= text_field 'page', 'menu_title'  %></p>
-
-<p><label for="page_description">Description</label><br/>
-<%= text_field 'page', 'description'  %></p>
-
-<div id="needTextEditor" class="hide"></div>
-<%= text_area 'page', 'html', {:style  => "display:none;"}  %>
+<p><label for="content_description">Description</label><br/>
+<%= text_field 'content', 'description'  %></p>
 
 <!--[eoform:page]-->
 

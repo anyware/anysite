@@ -9,9 +9,12 @@
 	<%= stylesheet_link_tag "admin/anysite" %>
 	<%= stylesheet_link_tag "admin/tabs" %>
 	<%= stylesheet_link_tag "simpletree" %>
-	<%= csrf_meta_tag %>
 	<%= stylesheet_link_tag "context_menu" %>
-	
+	<%= javascript_include_tag "admin/Editor" %>
+	<%= javascript_include_tag "Tree" %>
+	<%= javascript_include_tag "context_menu" %>
+	<%= javascript_include_tag "admin/Tab" %>
+	<%= csrf_meta_tag %>
 </head>
 <body onload="init_admin();">
 

@@ -75,7 +75,10 @@
     var method, url, params;
 
     var event = element.fire("ajax:before");
-    if (event.stopped) return false;
+    if (event.stopped) {
+			element.fire("ajax:stopped");
+			return false;
+		}
 
     if (element.tagName.toLowerCase() === 'form') {
       method = element.readAttribute('method') || 'post';
