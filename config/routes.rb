@@ -12,7 +12,10 @@ Anysite::Application.routes.draw do
       match 'contents/tree_node/:id' => 'contents#tree_node'
       #, :as => :tree_node
   end
-    
+  
+  namespace :site do
+    match ':id' => 'contents#show'
+  end
   # match 'admin' => 'admin/admin#index'
 
   devise_for :users

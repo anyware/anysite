@@ -27,7 +27,11 @@ function fixedMenuIEOver() {
 
 function init_admin(){
 	tree = new Tree();
-	// editor = new Editor();
+	tinyMCE.init({
+	        theme : "advanced",
+	        mode : "exact",
+					elements : "text_editor"
+	});
 	//tab = new Tab();
 	document.on('ajax:failure', 'a', function(response) {
 		$('editor').update(response.memo.responseText);
@@ -40,6 +44,10 @@ function init_admin(){
 	});
 	document.on('ajax:stopped', 'a', function(response) {
 		unloading();
+	});
+	
+	document.on('ajax:before', 'input', function(event) {
+		alert(event);
 	});
 		
 }
