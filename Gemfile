@@ -7,7 +7,6 @@ gem 'rails', '3.0.4'
 
 
 gem 'devise'
-gem 'inherited_resources'
 gem 'ancestry'
 gem 'acts_as_list'
 

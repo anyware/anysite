@@ -4,6 +4,6 @@ class Admin::AdminController < ApplicationController
 
   def index
     @homepage = Content.first
-    @resource_home = Folder.new
+    @resource_home = Folder.first
   end
 end

@@ -104,7 +104,6 @@ DEPENDENCIES
   ancestry
   devise
   factory_girl
-  inherited_resources
   inherited_resources_views
   rails (= 3.0.4)
   rspec

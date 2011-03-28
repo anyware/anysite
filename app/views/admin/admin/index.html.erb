@@ -13,9 +13,9 @@
 			</li>
 		</ul>
 		<ul id="any_files" class="treeview">
-			<li id="resource_folder_<%= @resource_home.id %>">
-				<%= link_to image_tag("admin/tree/home.png"), admin_content_path(@homepage) %>
-				<%= link_to @resource_home.name, admin_content_path(@homepage) %>
+			<li id="folder_<%= @resource_home.id %>">
+				<%= link_to image_tag("admin/tree/home.png"), {:controller => "folders", :action => "tree_node", :id => @resource_home.id}, :remote => true, :class => "tree_node_icon" %>
+				<%= link_to @resource_home.name, edit_admin_folder_path(@resource_home), :remote => true, :class => "tree_node" %>
 			</li>
 		</ul>
 		</div>
