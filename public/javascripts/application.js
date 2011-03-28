@@ -26,7 +26,8 @@ function fixedMenuIEOver() {
 }
 
 function init_admin(){
-	tree = new Tree();
+	var tree = new Tree();
+	var editor = new Editor();
 	tinyMCE.init({
 	        theme : "advanced",
 	        mode : "exact",
@@ -40,14 +41,23 @@ function init_admin(){
 		loading();
 	});
 	document.on('ajax:after', 'a', function(response) {
-		unloading();
 	});
 	document.on('ajax:stopped', 'a', function(response) {
 		unloading();
 	});
-	
-	document.on('ajax:before', 'input', function(event) {
-		alert(event);
+	document.on('ajax:success', 'a', function(response) {
+	});
+	document.on('ajax:complete', 'a', function(response) {
+		editor.toggleTextEditor();
+		unloading();
+	});
+	document.on('ajax:complete', 'form', function(response) {
+		editor.toggleTextEditor();
+		unloading();
+	});
+	document.on('ajax:before', 'form', function(response) {
+		loading();
+		editor.getTextEditorValue();
 	});
 		
 }

@@ -6,13 +6,11 @@
     </div>
     <div id="tabscontent">
         <div id="main_tab_content" class="tabContent" style="">
-				<div>
 					<%if @content.id then%>
 						<%= render :partial => 'edit' %>
 					<% else %>
 						<%= render :partial => 'new'%>
 					<% end %>
-				</div>
         </div>
 
         <div id="resources_tab_content" class="tabContent" style="display:none;">

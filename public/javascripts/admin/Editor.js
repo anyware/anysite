@@ -1,19 +1,19 @@
 var Editor = Class.create({
 	initialize: function() {
 	  },
-	showTextEditor: function(id_text) {
-		xinha_editors.text_editor.config.height = '480px';
-		xinha_editors.text_editor.initSize();
-		if(id_text != null)
-			xinha_editors.text_editor.setHTML($F(id_text));
-		$('div_text_editor').show();
-		$('div_text_editor').style.visibility = '';
+	toggleTextEditor: function() {
+		if($('content_html')){
+			tinyMCE.get('text_editor').setContent($F('content_html'));
+			$('div_text_editor').show();
+		}else{
+			$('div_text_editor').hide();
+		}
 	 },
 	
-	hideTextEditor: function(clear) {
-		if(clear)
-			xinha_editors.text_editor.setHTML('');
-		$('div_text_editor').hide();
-	 },
+	getTextEditorValue: function() {
+		if($('content_html')){
+			$('content_html').setValue(tinyMCE.get('text_editor').getContent());
+		}
+	}
 	
 });

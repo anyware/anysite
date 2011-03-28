@@ -84,6 +84,7 @@
       method = element.readAttribute('method') || 'post';
       url    = element.readAttribute('action');
       params = element.serialize();
+			//alert(params);
     } else {
       method = element.readAttribute('data-method') || 'get';
       url    = element.readAttribute('href');
