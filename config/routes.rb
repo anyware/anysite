@@ -11,6 +11,7 @@ Anysite::Application.routes.draw do
       match 'index' => 'admin#index'
       match 'contents/tree_node/:id' => 'contents#tree_node'
       match 'folders/tree_node/:id' => 'folders#tree_node'
+      match 'resources/update_positions' => 'resources#update_positions'
       #, :as => :tree_node
   end
   

@@ -9,6 +9,7 @@ gem 'rails', '3.0.4'
 gem 'devise'
 gem 'ancestry'
 gem 'acts_as_list'
+gem 'paperclip'
 
 
 # Use unicorn as the web server

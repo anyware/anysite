@@ -54,6 +54,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    paperclip (2.3.8)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -105,6 +108,7 @@ DEPENDENCIES
   devise
   factory_girl
   inherited_resources_views
+  paperclip
   rails (= 3.0.4)
   rspec
   rspec-rails (>= 2.5.0)
