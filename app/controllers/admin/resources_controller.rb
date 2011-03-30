@@ -3,4 +3,7 @@ class Admin::ResourcesController < ApplicationController
   
   def update_positions
   end
+  
+  def destroy
+  end
 end
