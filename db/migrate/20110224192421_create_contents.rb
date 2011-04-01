@@ -5,11 +5,11 @@ class CreateContents < ActiveRecord::Migration
       t.string :description
       t.integer :created_by
       t.integer :updated_by
-      t.integer :page_id
       t.integer :position
 
       t.timestamps
     end
+    Content.create :name => "Homepage", :description => "Change this to your site name"
   end
 
   def self.down

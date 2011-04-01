@@ -10,6 +10,7 @@ class CreateFolders < ActiveRecord::Migration
 
       t.timestamps
     end
+    Folder.create :name => "Resources", :description => "Change this to your site name"
   end
 
   def self.down
