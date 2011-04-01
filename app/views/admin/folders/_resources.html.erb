@@ -5,7 +5,7 @@
 				<div class="handle">
 					<%= image_tag "admin/tree/open.png"%>&nbsp;<%= resource.name %>
 				</div>
-				<%= link_to image_tag("admin/tree/trash.png"), destroy_admin_resource_path(resource)  %>
+				<%= link_to image_tag("admin/tree/trash.png"), admin_resource_path(resource), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
 				<br clear="all"/>
 			</li>
 		<% end %>

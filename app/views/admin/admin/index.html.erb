@@ -13,7 +13,7 @@
 			</li>
 		</ul>
 		<ul id="any_files" class="treeview">
-			<li id="folder_<%= @resource_home.id %>">
+			<li id="resource_folder_<%= @resource_home.id %>">
 				<%= link_to image_tag("admin/tree/home.png"), {:controller => "folders", :action => "tree_node", :id => @resource_home.id}, :remote => true, :class => "tree_node_icon" %>
 				<%= link_to @resource_home.name, edit_admin_folder_path(@resource_home), :remote => true, :class => "tree_node" %>
 			</li>

@@ -41,7 +41,7 @@ var Tree = Class.create({
 	
 	refreshFolder: function(id, tree_type){
 		if(tree_type == null)
-			folder = "folder_"+id
+			folder = "content_"+id
 		else
 			folder = tree_type +"_folder_"+id
 		if($(folder).down('ul')) $(folder).down('ul').remove()

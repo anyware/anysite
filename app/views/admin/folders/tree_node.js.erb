@@ -1,0 +1,2 @@
+$('resource_folder_<%=@folder.id%>').insert("<%= escape_javascript(render :partial => "tree_node") %>")
+tree.openResourceFolder(<%=@folder.id%>);

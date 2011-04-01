@@ -1,0 +1,10 @@
+<% if !@folder.children.empty? %>
+<ul id="resource_folder_<%= @folder.id %>_ul">
+<% for subfolder in @folder.children%>
+	<li id="resource_folder_<%= subfolder.id %>">
+			<%= link_to image_tag("admin/tree/closed.png"), {:controller => "folders", :action => "tree_node", :id => subfolder.id}, :remote => true, :class => "tree_node_icon" %>
+			<%= link_to subfolder.name , edit_admin_folder_path(subfolder), :remote => true, :class => "tree_node" %>
+	</li>
+<% end%>
+</ul>
+<% end %>
