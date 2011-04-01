@@ -1,4 +1,4 @@
-class AddSourceToResource < ActiveRecord::Migration
+class AddSourceToResources < ActiveRecord::Migration
 
   def self.up
     add_column :resources, :source_file_name,    :string
