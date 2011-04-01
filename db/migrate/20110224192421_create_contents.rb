@@ -9,7 +9,6 @@ class CreateContents < ActiveRecord::Migration
 
       t.timestamps
     end
-    Content.create :name => "Homepage", :description => "Change this to your site name"
   end
 
   def self.down
