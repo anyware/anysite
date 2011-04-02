@@ -1,0 +1,4 @@
+<li id="resource_folder_<%= subfolder.id %>">
+		<%= link_to image_tag("admin/tree/closed.png"), {:controller => "folders", :action => "tree_node", :id => subfolder.id}, :remote => true, :class => "tree_node_icon" %>
+		<%= link_to "#{subfolder.name} (#{subfolder.resources.size})" , edit_admin_folder_path(subfolder), :remote => true, :class => "tree_node" %>
+</li>

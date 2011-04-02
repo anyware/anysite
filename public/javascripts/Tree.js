@@ -11,29 +11,21 @@ var Tree = Class.create({
   },
 
 
-	openFolder: function(id, tree_type){
-		if(tree_type != null )
-			folder = $(tree_type+'_folder_'+id);
-		else
-			folder = $('content_'+id);
-		if($(folder).hasClassName("opened")){
-			$(folder).removeClassName("opened")
-			$(folder).addClassName("closed")
-			$(folder).down().down().src=this.closedFolder;
-			$(folder).down('ul').remove();
-			return false;
-		}
-		else{
-			$(folder).removeClassName("closed")
-			$(folder).addClassName("opened")
-			$(folder).down().down().src=this.openedFolder
-			return true;
-		}
-	},
-	openResourceFolder: function(id){
-		return tree.openFolder(id, 'resource');
+	openFolder: function(folder){
+		$(folder).removeClassName("closed")
+		$(folder).addClassName("opened")
+		$(folder).down().down().src=this.openedFolder
+		return true;
 	},
 
+	closeFolder: function(folder){
+		$(folder).removeClassName("opened")
+		$(folder).addClassName("closed")
+		$(folder).down().down().src=this.closedFolder;
+		$(folder).down('ul').remove();
+		return false;
+	},
+	
 	setSelected: function(event){
 		$('selected_object').value = Element.extend(Event.element(event)).up().id;
 		editor.hideTextEditor(true);

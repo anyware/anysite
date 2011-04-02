@@ -7,16 +7,10 @@
 		<div id="anysite_top"></div>
 		<div id="navigation_menu" class="treeview">
 		<ul id="any_folders" class="treeview">
-			<li id="content_<%= @homepage.id %>">
-				<%= link_to image_tag("admin/tree/home.png"), {:controller => "contents", :action => "tree_node", :id => @homepage.id}, :remote => true, :class => "tree_node_icon" %>
-				<%= link_to @homepage.name , edit_admin_content_path(@homepage), :remote => true, :class => "tree_node" %>
-			</li>
+			<%= render :partial => '/admin/contents/tree_node_child', :locals => { :subcontent => @content}%>
 		</ul>
 		<ul id="any_files" class="treeview">
-			<li id="resource_folder_<%= @resource_home.id %>">
-				<%= link_to image_tag("admin/tree/home.png"), {:controller => "folders", :action => "tree_node", :id => @resource_home.id}, :remote => true, :class => "tree_node_icon" %>
-				<%= link_to @resource_home.name, edit_admin_folder_path(@resource_home), :remote => true, :class => "tree_node" %>
-			</li>
+			<%= render :partial => '/admin/folders/tree_node_child', :locals => { :subfolder => @folder } %>
 		</ul>
 		</div>
 

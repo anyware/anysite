@@ -3,7 +3,7 @@ class Admin::AdminController < ApplicationController
   layout "admin"
 
   def index
-    @homepage = Content.first
-    @resource_home = Folder.first
+    @content = Content.first
+    @folder = Folder.first
   end
 end

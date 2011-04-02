@@ -1,0 +1,4 @@
+<li id="content_<%= subcontent.id %>">
+		<%= link_to image_tag("admin/tree/closed.png"), {:controller => "contents", :action => "tree_node", :id => subcontent.id}, :remote => true, :class => "tree_node_icon" %>
+		<%= link_to "#{subcontent.name} (#{subcontent.children.size})" , edit_admin_content_path(subcontent), :remote => true, :class => "tree_node" %>
+</li>

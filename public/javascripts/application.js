@@ -36,10 +36,23 @@ function init_admin(){
 	//tab = new Tab();
 	document.on('ajax:failure', 'a', function(response) {
 		$('editor').update(response.memo.responseText);
-	});
+	}); 
 	document.on('ajax:before', 'a', function(response) {
-		loading();
+	 	loading();
 	});
+	document.on('ajax:before', '.tree_node_icon', function(event) {
+		sublist = $(event.target).up().down('ul');
+		if(sublist){
+			sublist.remove();
+			tree.closeFolder(event.target.up());
+			event.stop();
+		}
+	});
+	
+	document.on('ajax:success', '.tree_node_icon', function(event) {
+		tree.openFolder(event.target.up());
+	});
+	
 	document.on('ajax:after', 'a', function(response) {
 	});
 	document.on('ajax:stopped', 'a', function(response) {

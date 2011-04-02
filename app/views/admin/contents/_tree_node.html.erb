@@ -1,10 +1,7 @@
 <% if !@content.children.empty? %>
 <ul id="content_<%= @content.id %>_ul">
 <% for subcontent in @content.children%>
-	<li id="content_<%= subcontent.id %>">
-			<%= link_to image_tag("admin/tree/closed.png"), {:controller => "contents", :action => "tree_node", :id => subcontent.id}, :remote => true, :class => "tree_node_icon" %>
-			<%= link_to subcontent.name , edit_admin_content_path(subcontent), :remote => true, :class => "tree_node" %>
-	</li>
+	<%= render :partial => 'tree_node_child', :locals => {:subcontent => subcontent}%>
 <% end%>
 </ul>
 <% end %>

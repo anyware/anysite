@@ -4,4 +4,9 @@ class Site::ContentsController < ApplicationController
   def show
     @content = Content.find(params[:id])
   end
+  
+  def index
+    @content = Content.first
+    render 'show'
+  end
 end
