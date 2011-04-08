@@ -1,9 +1,13 @@
+<div>
+	<%= link_to 'new', new_admin_resource_path(:target_id => @folder.id), :remote => true%>
+</div>
 <div id="resource_folder_resources">
 	<ul id="resource_folder_resources_sortable_list" class="sortable">
 		<% @folder.resources.each do |resource| %>    
 	  	<li id="resource_folder_resource_<%= resource.id %>">
 				<div class="handle">
-					<%= image_tag "admin/tree/open.png"%>&nbsp;<%= resource.name %>
+					<%= image_tag "admin/tree/open.png"%>&nbsp;
+						<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
 				</div>
 				<%= link_to image_tag("admin/tree/trash.png"), admin_resource_path(resource), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
 				<br clear="all"/>

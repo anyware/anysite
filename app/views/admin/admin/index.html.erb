@@ -45,3 +45,26 @@
 			<input id="right_clicked_item" type='text' value="" style="display:none">
 
 
+			<script type="text/javascript">
+				var current_object = "";
+
+				//ddtreemenu.createTree(treeid, enablepersist, opt_persist_in_days (default is 1))
+
+				//ddtreemenu.createTree("any_folders", false)
+				//set this variable to 1 if you wish the URLs of the highlighted menu to be displayed in the status bar
+				var display_url=0
+
+				var ie5=document.all&&document.getElementById
+				var ns6=document.getElementById&&!document.all
+				/*if (ie5||ns6)
+				var folder_menu=document.getElementById("folder_menu")
+
+				if (ie5||ns6){
+				//menuobj.style.display=''
+				//document.oncontextmenu=showmenuie5
+				document.onclick=hideAllMenu
+				}*/
+				document.onclick=hideAllMenu;
+				var menus = new Array(document.getElementById("folder_menu"), document.getElementById("resource_folder_menu"))
+
+			</script>

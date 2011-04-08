@@ -54,6 +54,7 @@ function init_admin(){
 	});
 	
 	document.on('ajax:after', 'a', function(response) {
+		unloading();
 	});
 	document.on('ajax:stopped', 'a', function(response) {
 		unloading();
@@ -62,7 +63,6 @@ function init_admin(){
 	});
 	document.on('ajax:complete', 'a', function(response) {
 		editor.toggleTextEditor();
-		unloading();
 	});
 	document.on('ajax:complete', 'form', function(response) {
 		editor.toggleTextEditor();

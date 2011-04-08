@@ -1,7 +1,8 @@
 <div class="tabs">
     <ul>
-        <li style="margin-left: 1px" id="main_tab" class="tabHeaderActive"><a href="#" class="tab_header"><span>Geral</span></a></li>
-        <li id="resources_tab"><a href="#" class="tab_header" ><span>Resources2</span></a></li>
+        <li id="main_tab" class="tabHeaderActive tab_header">Geral</li>
+        <li id="contents_tab" class="tab_header">Contents</li>
+        <li id="resources_tab" class="tab_header" >Resources</li>
     </ul>
     </div>
     <div id="tabscontent">
@@ -14,7 +15,10 @@
         </div>
 
         <div id="resources_tab_content" class="tab_content" style="display:none;">
-            <br /><div><%#= render :partial => 'resources' %></div>
+            <br /><div><%= render :partial => 'resources' %></div>
+        </div>
+				<div id="contents_tab_content" class="tab_content" style="display:none;">
+            <br /><div><%= render :partial => 'contents' %></div>
         </div>
     </div>
 </div>
