@@ -12,7 +12,8 @@ class Admin::ResourcesController < ApplicationController
   end
   
   def new
-    @resource = Resource.new
+    @folder = Folder.find(params[:folder_id])
+    @resource =@folder.resources.build
   end
   
   def create
