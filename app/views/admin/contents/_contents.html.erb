@@ -1,1 +1,18 @@
-contents
+<div>
+	<%= link_to 'new', new_admin_content_path(:parent_id => @content.id), :remote => true%>
+</div>
+<div id="content_contents">
+	<ul id="content_contents_sortable_list" class="sortable">
+		<% if(@content.id) then @content.children.each do |content| %>    
+	  	<li id="content_content_<%= content.id %>">
+				<div class="handle">
+					<%= image_tag "admin/tree/open.png"%>&nbsp;
+						<%= link_to content.name, edit_admin_content_path(content), :remote => true %>
+				</div>
+				<%= link_to image_tag("admin/tree/trash.png"), admin_content_path(content), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+				<br clear="all"/>
+			</li>
+		<% end end %>
+	</ul>
+</div>
+<%= sortable_element('resource_folder_resources_sortable_list', :url => {:controller => 'resources', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>

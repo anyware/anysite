@@ -1,0 +1,18 @@
+<div>
+	<%= link_to 'new folder', new_admin_folder_path(:target_id => @folder.id), :remote => true%>
+</div>
+<div id="folder_folders">
+	<ul id="folder_folders_sortable_list" class="sortable">
+		<% if(@folder.id) then @folder.children.each do |folder| %>    
+	  	<li id="folder_folder_<%= folder.id %>">
+				<div class="handle">
+					<%= image_tag "admin/tree/open.png"%>&nbsp;
+						<%= link_to folder.name, edit_admin_folder_path(folder), :remote => true %>
+				</div>
+				<%= link_to image_tag("admin/tree/trash.png"), admin_folder_path(folder), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+				<br clear="all"/>
+			</li>
+		<% end end %>
+	</ul>
+</div>
+<%= sortable_element('folder_resources_sortable_list', :url => {:controller => 'resources', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>

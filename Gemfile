@@ -35,7 +35,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails', '>= 2.5.0'
   gem 'factory_girl'
-  gem 'inherited_resources_views'
 	gem 'sqlite3'
 end
 

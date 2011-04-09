@@ -1,0 +1,4 @@
+<% form_tag admin_folders_path, :remote => true, :id => 'folder_form' do %>
+	<%= text_field_tag 'target_id', @target.id%>
+  <%= render :partial => 'form' %>
+<% end %>

@@ -2,6 +2,7 @@
     <ul>
         <li id="main_tab" class="tabHeaderActive tab_header">Geral</li>
         <li id="resources_tab" class="tab_header">Resources</li>
+        <li id="folders_tab" class="tab_header">Folders</li>
     </ul>
     </div>
     <div id="tabscontent">
@@ -15,6 +16,9 @@
 
         <div id="resources_tab_content" class="tab_content" style="display:none;">
             <br /><div><%= render :partial => 'resources' %></div>
+        </div>
+        <div id="folders_tab_content" class="tab_content" style="display:none;">
+            <br /><div><%= render :partial => 'folders' %></div>
         </div>
     </div>
 </div>
