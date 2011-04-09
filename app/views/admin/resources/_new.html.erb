@@ -1,5 +1,4 @@
-<% form_for( admin_resources_path, :remote => true, :id => 'resource_form') do %>
-<%# form_tag admin_resource_path, :method => :create, :remote => true, :id => 'resource_form' do %>
+<% form_tag( admin_resources_path, :remote => true, :id => 'resource_form') do %>
 	<%= text_field_tag 'target_id', @folder.id%>
   <%= render :partial => 'form' %>
 <% end %>
