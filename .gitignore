@@ -9,3 +9,4 @@ config/database.locaweb.yml
 .bundle
 .redcar
 core
+public/system

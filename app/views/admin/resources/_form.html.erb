@@ -6,9 +6,14 @@
 
 
 <p><label for="resource_source">File</label><br/>
-<%= @resource.source.url(:thumb)%>
+<% if @resource.source_content_type.include? 'image' then %>
 <img src="<%=@resource.source.url(:thumb)%>"/>
+<% end -%>
 <%= file_field 'resource', :source %>
+
+<br/>
+content type: <%= @resource.source_content_type %><br/>
+file size: <%=@resource.source_file_size%><br/>
 
 <%= submit_tag "Salvar", :name => nil %>
 <!--[eoform:page]-->
