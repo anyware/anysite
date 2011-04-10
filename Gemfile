@@ -35,9 +35,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails', '>= 2.5.0'
   gem 'factory_girl'
-	gem 'sqlite3'
+  gem 'sqlite3'
 end
 
-#group :production do 
-#	gem 'mysql2'
-#end
