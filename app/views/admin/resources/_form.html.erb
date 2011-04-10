@@ -4,6 +4,12 @@
 <p><label for="resource_description">Description</label><br/>
 <%= text_field 'resource', 'description'  %></p>
 
+
+<p><label for="resource_source">File</label><br/>
+<%= @resource.source.url(:thumb)%>
+<img src="<%=@resource.source.url(:thumb)%>"/>
+<%= file_field 'resource', :source %>
+
 <%= submit_tag "Salvar", :name => nil %>
 <!--[eoform:page]-->
 

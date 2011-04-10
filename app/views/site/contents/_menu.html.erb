@@ -1,6 +1,6 @@
 <% for content in contents%>
-	<% if !content.name.blank? %>
-	<li><a href="#"><%= content.name %></a>
+	<% if !content.menu.blank? %>
+	<li><a href="#"><%= content.menu %></a>
 		<%= render :partial => 'sub_menu', :locals => {:contents => content.children} %>
 	</li>
 	<% end -%>
