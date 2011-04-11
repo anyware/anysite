@@ -1,0 +1,11 @@
+<% if !@menu_item.children.empty? %>
+	<ul>
+	  <% for @menu_item in @menu_item.children %>
+		<% if !@menu_item.menu.blank? %>
+		<li><a href="#"><%= @menu_item.menu %></a>
+			<%= render_template 'sub_menu'-%>
+		</li>
+		<% end -%>
+	  <% end -%>
+	</ul>
+<% end -%>
