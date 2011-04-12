@@ -1,1 +1,15 @@
-resources
+<div id="content_resources">
+	<ul id="content_resources_sortable_list" class="sortable">
+		<% if(@content.id) then @content.resources.each do |resource| %>    
+	  	<li id="content_resource_<%= resource.id %>">
+				<div class="handle">
+					<%= image_tag "admin/tree/open.png"%>&nbsp;
+						<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
+				</div>
+				<%= link_to image_tag("admin/tree/trash.png"), admin_content_path(@content, resource), :confirm => 'Are you sure?', :method => 'remove_resource', :remote => true %>
+				<br clear="all"/>
+			</li>
+		<% end end %>
+	</ul>
+</div>
+<%= sortable_element('resource_folder_resources_sortable_list', :url => {:controller => 'resources', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>
