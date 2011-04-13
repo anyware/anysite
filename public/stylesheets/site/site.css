@@ -1,6 +1,118 @@
-body {
-	font: 11px Arial, Verdana, sans-serif;
-	border: 0;
-	margin: 0;
-	padding: 0;
+*  
+    { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+}
+
+.clear 
+    { 
+    clear:both; 
+} 
+
+.right 
+    { 
+    float: right; 
+} 
+
+.left 
+    { 
+    float: left; 
+}
+
+body 
+    { 
+    font: 62.5%/1.5  "Lucida Grande", "Lucida Sans", Tahoma, Verdana, sans-serif; 
+/*    background: url(/images/wallpaper.png) repeat; */
+    color: #000000;     
+    text-align:center; 
+}
+
+#wrapper 
+    {  
+    width:980px;  
+    text-align:left;   
+    margin-left:auto;  
+    margin-right:auto;  
+    background-color: #FFFFFF; 
+}
+
+h1 
+    { 
+    font-size: 2.2em; 
+} 
+     
+h2 
+    { 
+    font-size: 2.0em;     
+} 
+     
+h3 
+    { 
+    font-size: 1.8em; 
+} 
+     
+h4 
+    { 
+    font-size: 1.6em;     
+} 
+     
+h5 
+    { 
+    font-size: 1.4em;     
+} 
+     
+p 
+    { 
+    font-size: 1.2em;     
+}
+
+
+/* Header 
+-----------------------------------------------------------------------------*/ 
+
+/* Navigation 
+-----------------------------------------------------------------------------*/ 
+
+/* Footer 
+-----------------------------------------------------------------------------*/ 
+#footer{
+	text-align: center;
+}
+
+/* Homepage 
+-----------------------------------------------------------------------------*/ 
+
+/* Your template 
+-----------------------------------------------------------------------------*/
+#center{
+	min-height:500px;
+}
+
+#center *{
+	padding:10px;
+}
+
+/* Forms 
+-----------------------------------------------------------------------------*/ 
+
+input.text 
+  { 
+  padding: 3px; 
+  border: 1px solid #999999;     
+}
+
+/* Tables  
+-----------------------------------------------------------------------------*/ 
+
+table 
+  {  
+  border-spacing: 0; 
+  border-collapse: collapse; 
+} 
+
+td  
+  { 
+  text-align: left; 
+  font-weight: normal; 
 }

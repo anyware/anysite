@@ -2,7 +2,7 @@
 	<ul>
 	  <% for @menu_item in @menu_item.children %>
 		<% if !@menu_item.menu.blank? %>
-		<li><a href="#"><%= @menu_item.menu %></a>
+		<li><%= link_to @menu_item.menu, site_path(@menu_item) %>
 			<%= render_template 'sub_menu'-%>
 		</li>
 		<% end -%>
