@@ -18,6 +18,9 @@ Anysite::Application.routes.draw do
   namespace :site do
     match ':id' => 'contents#show'
   end
+  
+  match 'contact_us' => 'email#contact_us'
+      
   # match 'admin' => 'admin/admin#index'
 
   devise_for :users

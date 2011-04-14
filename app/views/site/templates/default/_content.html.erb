@@ -31,7 +31,8 @@
 				</ul>
 			</div>
 			<div id="center">
-				<%= @content.html.html_safe if @content.html %>
+				<%= @content.html.html_safe if @content.html and @content.partial_template.blank? %>
+				<%= render_template @content.partial_template if !@content.partial_template.blank? %>
 			</div>
 			<div id="footer">
 				<div id="corpright">Anyware Technologies 2007-2011 © All Rights Reserved - Powered by Anysite</div>

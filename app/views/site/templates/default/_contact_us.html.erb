@@ -1,0 +1,10 @@
+<html>
+<body>
+<%= form_tag  '/contact_us' do%>
+<p><%= text_field 'email', 'from'  %></p>
+<p><%= text_field 'email', 'subject'  %></p>
+<%= hidden_field_tag 'content_id', @content.id%>
+<%= submit_tag "enviar", :name => nil %>
+<% end -%>
+</body>
+</html>

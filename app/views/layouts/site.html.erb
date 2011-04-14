@@ -1,1 +1,1 @@
-<%= render :partial => '/site/templates/default/content' %>
+<%= render_template @content.template.blank? ? 'content' : @content.template %>
