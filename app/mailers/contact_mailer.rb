@@ -1,9 +1,8 @@
 class ContactMailer < ActionMailer::Base
-  default :from => "mathieu@anyware-technologies.com.br"
+  default :from => "mathieu@anyware-technologies.com.br", :to => 'mathieu@anyware-technologies.com.br'
   
   def contact_us(email)
-    mail(:to => 'mathieu@anyware-technologies.com.br',
-             :subject => email[:subject],
-             :from => email[:from])
+    @email = email
+    mail(:subject => "Contact Us - #{email[:subject]}")
   end
 end
