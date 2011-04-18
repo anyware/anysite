@@ -49,27 +49,29 @@ ul#navmenu-h ul li {
 
 /* Root Menu */
 ul#navmenu-h a {
-  border: 1px solid #FFF;
-  border-right-color: #CCC;
-  border-bottom-color: #CCC;
+  border: 1px solid #003673;
+/*  border-right-color: #8298B0;*/
+/*  border-bottom-color: #CCC;*/
   padding: 0 6px;
   float: none !important; /*For Opera*/
   float: left; /*For IE*/
   display: block;
-  background: #EEE;
-  color: #666;
-  font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+  background: #D3E3F5;
+  color: #003673;
+  font: bold 14px/26px Verdana, Arial, Helvetica, sans-serif;
   text-decoration: none;
   height: auto !important;
   height: 1%; /*For IE*/
+	margin-right:10px;
+		border-radius: 5px;
 }
 
 /* Root Menu Hover Persistence */
 ul#navmenu-h a:hover,
 ul#navmenu-h li:hover a,
 ul#navmenu-h li.iehover a {
-  background: #CCC;
-  color: #FFF;
+  background: white;
+  color: #003673;
 }
 
 /* 2nd Menu */

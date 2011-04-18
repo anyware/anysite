@@ -24,17 +24,19 @@ body
     { 
     font: 62.5%/1.5  "Lucida Grande", "Lucida Sans", Tahoma, Verdana, sans-serif; 
 /*    background: url(/images/wallpaper.png) repeat; */
+		background-color: #8298B0;
     color: #000000;     
     text-align:center; 
 }
 
 #wrapper 
-    {  
-    width:980px;  
+    {
+		margin-top:10px;
+    width:800px;  
     text-align:left;   
     margin-left:auto;  
     margin-right:auto;  
-    background-color: #FFFFFF; 
+/*    background-color: #FFFFFF; */
 }
 
 h1 
@@ -70,9 +72,18 @@ p
 
 /* Header 
 -----------------------------------------------------------------------------*/ 
+#header{
+  border: 1px solid #003673;
+	border-radius: 15px;
+	background-color: white;
+	padding-left : 10px;
+}
 
 /* Navigation 
 -----------------------------------------------------------------------------*/ 
+#navigation{
+	margin-top:10px;
+}
 
 /* Footer 
 -----------------------------------------------------------------------------*/ 
@@ -86,7 +97,11 @@ p
 /* Your template 
 -----------------------------------------------------------------------------*/
 #center{
+	margin-top:10px;
 	min-height:500px;
+  border: 1px solid #003673;
+	border-radius: 15px;
+	background-color: white;
 }
 
 #center *{
