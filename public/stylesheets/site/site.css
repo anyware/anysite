@@ -74,7 +74,7 @@ p
 -----------------------------------------------------------------------------*/ 
 #header{
   border: 1px solid #003673;
-	border-radius: 15px;
+	border-radius: 5px;
 	background-color: white;
 	padding-left : 10px;
 }
@@ -100,7 +100,7 @@ p
 	margin-top:10px;
 	min-height:500px;
   border: 1px solid #003673;
-	border-radius: 15px;
+	border-radius: 5px;
 	background-color: white;
 }
 

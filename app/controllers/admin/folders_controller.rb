@@ -38,4 +38,18 @@ class Admin::FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
   end
   
+  def order_resources
+    params[:folder_resources].each_with_index do |id, position|
+      Resource.update(id, :position => position+1)
+    end
+    render :nothing => true
+  end
+  
+  def order_folders
+    params[:folder_folders].each_with_index do |id, position|
+      Folder.update(id, :position => position+1)
+    end
+    render :nothing => true
+  end
+  
 end

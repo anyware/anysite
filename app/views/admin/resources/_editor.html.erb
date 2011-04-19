@@ -1,7 +1,7 @@
 <div class="tabs">
     <ul>
         <li id="main_tab" class="tabHeaderActive tab_header">Geral</li>
-        <li id="main_tab" class="tab_header">q<%= link_to "refresh", edit_admin_resource_path(@resource), :remote => true %></li>
+        <li id="main_tab" class="tab_header">q<%= link_to("refresh", edit_admin_resource_path(@resource), :remote => true) if !@resource.id.nil? %></li>
     </ul>
     </div>
     <div id="tabscontent">

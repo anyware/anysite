@@ -4,4 +4,5 @@ class Folder < ActiveRecord::Base
   has_many :resources
   has_one :creator, :foreign_key => "created_by"
   has_one :editor, :foreign_key => "edited_by"
+  default_scope :order => "position ASC"
 end

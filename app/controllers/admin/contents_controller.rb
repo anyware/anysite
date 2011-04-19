@@ -38,4 +38,11 @@ class Admin::ContentsController < ApplicationController
     @content = Content.find(params[:id])
   end
   
+  def order
+    params[:content_contents].each_with_index do |id, position|
+      Content.update(id, :position => position+1)
+    end
+    render :nothing => true
+  end
+  
 end

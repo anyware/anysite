@@ -1,18 +1,16 @@
 <div>
 	<%= link_to 'new', new_admin_resource_path(:folder_id => @folder.id), :remote => true%>
 </div>
-<div id="resource_folder_resources">
-	<ul id="resource_folder_resources_sortable_list" class="sortable">
-		<% @folder.resources.each do |resource| %>    
-	  	<li id="resource_folder_resource_<%= resource.id %>">
-				<div class="handle">
-					<%= image_tag "admin/tree/open.png"%>&nbsp;
-						<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
-				</div>
-				<%= link_to image_tag("admin/tree/trash.png"), admin_resource_path(resource), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
-				<br clear="all"/>
-			</li>
-		<% end %>
-	</ul>
-</div>
-<%= sortable_element('resource_folder_resources_sortable_list', :url => {:controller => 'resources', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>
+<ul id="folder_resources" class="sortable">
+	<% @folder.resources.each do |resource| %>    
+  	<li id="folder_resource_<%= resource.id %>">
+			<div class="handle">
+				<%= image_tag "admin/tree/open.png"%>&nbsp;
+					<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
+			</div>
+			<%= link_to image_tag("admin/tree/trash.png"), admin_resource_path(resource), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+			<br clear="all"/>
+		</li>
+	<% end %>
+</ul>
+<%= sortable_element('folder_resources', :url => {:controller => 'folders', :action => :order_resources}, :handle => "handle") %>

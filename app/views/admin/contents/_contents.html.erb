@@ -1,8 +1,7 @@
 <div>
 	<%= link_to 'new', new_admin_content_path(:parent_id => @content.id), :remote => true%>
 </div>
-<div id="content_contents">
-	<ul id="content_contents_sortable_list" class="sortable">
+	<ul id="content_contents" class="sortable">
 		<% if(@content.id) then @content.children.each do |content| %>    
 	  	<li id="content_content_<%= content.id %>">
 				<div class="handle">
@@ -14,5 +13,4 @@
 			</li>
 		<% end end %>
 	</ul>
-</div>
-<%= sortable_element('resource_folder_resources_sortable_list', :url => {:controller => 'resources', :action => :update_positions},:complete => "treeUpdateSelectedFolder()", :handle => "handle") %>
+<%= sortable_element('content_contents', :url => {:controller => 'contents', :action => :order}, :handle => "handle") %>
