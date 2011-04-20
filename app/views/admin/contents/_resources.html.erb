@@ -1,15 +1,14 @@
-<div id="content_resources">
-	<ul id="content_resources_sortable_list" class="sortable">
-		<% if(@content.id) then @content.resources.each do |resource| %>    
-	  	<li id="content_resource_<%= resource.id %>">
-				<div class="handle">
-					<%= image_tag "admin/tree/open.png"%>&nbsp;
-						<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
-				</div>
-				<%= link_to image_tag("admin/tree/trash.png"), admin_content_path(@content, resource), :confirm => 'Are you sure?', :method => 'remove_resource', :remote => true %>
-				<br clear="all"/>
-			</li>
-		<% end end %>
-	</ul>
-</div>
-<%= sortable_element('content_resources_sortable_list', :url => "/toto", :handle => "handle") %>
+<ul id="content_resources" class="sortable">
+	<% if(@content.id) then @content.resources.each do |resource| %>    
+  	<li id="content_resource_<%= resource.id %>">
+			<div class="handle">
+				<%= image_tag "admin/tree/open.png"%>&nbsp;
+					<%= link_to resource.name, edit_admin_resource_path(resource), :remote => true %>
+			</div>
+			<%= link_to image_tag("admin/tree/trash.png"), admin_content_path(@content, resource), :confirm => 'Are you sure?', :method => 'remove_resource', :remote => true %>
+			<br clear="all"/>
+		</li>
+	<% end end %>
+</ul>
+<%#= sortable_element('content_resources', :url => {:controller => 'contents', :action => "order_resources"}, :handle => "handle") %>
+<%= sortable_element('content_resources', :url => { :controller => 'contents', :action => "order_resources", :content_id => @content.id}) %>

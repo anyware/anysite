@@ -13,6 +13,7 @@ Anysite::Application.routes.draw do
       match 'folders/tree_node/:id' => 'folders#tree_node'
       match 'resources/update_positions' => 'resources#update_positions'
       match 'contents/order' => 'contents#order'
+      match 'contents/order_resources' => 'contents#order_resources'
       match 'folders/order_folders' => 'folders#order_folders'
       match 'folders/order_resources' => 'folders#order_resources'
       #, :as => :tree_node
