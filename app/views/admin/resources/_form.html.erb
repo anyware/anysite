@@ -6,7 +6,7 @@
 
 
 <p><label for="resource_source">File</label><br/>
-<% if !@resource.id.nil? and @resource.source_content_type.include? 'image' then %>
+<% if !@resource.id.nil? and @resource.source_content_type and @resource.source_content_type.include? 'image' then %>
 <img src="<%=@resource.source.url(:thumb)%>"/>
 <% end -%>
 <%= file_field 'resource', :source %>
