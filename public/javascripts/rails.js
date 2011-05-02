@@ -84,7 +84,7 @@
       method = element.readAttribute('method') || 'post';
       url    = element.readAttribute('action');
       params = element.serialize();
-			//alert(params);
+
     } else {
       method = element.readAttribute('data-method') || 'get';
       url    = element.readAttribute('href');
@@ -96,7 +96,16 @@
       parameters: params,
       evalScripts: true,
 
-      onComplete:    function(request) { element.fire("ajax:complete", request); },
+      onComplete:    function(request) {
+												if(!$(element).descendantOf(document)){
+													if(!$("rails_reserved_garbage")){
+														$(document.body).insert('<div style="display:none;" id="rails_reserved_garbage">asdsad</div>');
+													}
+													$("rails_reserved_garbage").update(element);
+												}
+												element.fire("ajax:complete", request);
+												$("rails_reserved_garbage").remove(element); 
+											},
       onSuccess:     function(request) { element.fire("ajax:success",  request); },
       onFailure:     function(request) { element.fire("ajax:failure",  request); }
     });

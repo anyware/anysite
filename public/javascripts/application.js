@@ -3,7 +3,8 @@
 
 /* Call all function on onload off site page */
 Event.observe(window, 'load', fixedMenuIEOver, false);
-
+var tree;
+var editor;
 /**
  * Function to fixed the IE problem with 'over' 
  */
@@ -25,21 +26,16 @@ function fixedMenuIEOver() {
 	}
 }
 
+
 function init_admin(){
-	var tree = new Tree();
-	var editor = new Editor();
+	tree = new Tree();
+	editor = new Editor();
 	tinyMCE.init({
 	        theme : "advanced",
 	        mode : "exact",
 					elements : "text_editor"
 	});
-	//tab = new Tab();
-	document.on('ajax:failure', 'a', function(response) {
-		$('editor').update(response.memo.responseText);
-	}); 
-	document.on('ajax:before', 'a', function(response) {
-	 	loading();
-	});
+
 	document.on('ajax:before', '.tree_node_icon', function(event) {
 		sublist = $(event.target).up().down('ul');
 		if(sublist){
@@ -53,24 +49,28 @@ function init_admin(){
 		tree.openFolder(event.target.up());
 	});
 	
-	document.on('ajax:after', 'a', function(response) {
-		unloading();
+	document.on('ajax:before', 'a', function(response) {
+	 	loading();
 	});
 	document.on('ajax:stopped', 'a', function(response) {
 		unloading();
 	});
-	document.on('ajax:success', 'a', function(response) {
-	});
 	document.on('ajax:complete', 'a', function(response) {
 		editor.toggleTextEditor();
+		unloading();
+	});
+	document.on('ajax:failure', 'a', function(response) {
+		$('editor').update(response.memo.responseText);
+	}); 
+	
+	
+	document.on('ajax:before', 'form', function(response) {
+		loading();
+		editor.getTextEditorValue();
 	});
 	document.on('ajax:complete', 'form', function(response) {
 		editor.toggleTextEditor();
 		unloading();
-	});
-	document.on('ajax:before', 'form', function(response) {
-		loading();
-		editor.getTextEditorValue();
 	});
 		
 }

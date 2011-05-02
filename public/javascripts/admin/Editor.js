@@ -3,7 +3,7 @@ var Editor = Class.create({
 		document.on('click', '.tab_header', function(event){
 			$$('.tab_content').invoke('hide');
 			$(event.target.id + '_content').show();
-			if($(event.target.id + '_content').down('#content_html'))
+			if($(event.target.id + '_content').down('#content_html') != undefined)
 				$('div_text_editor').show();				
 			else
 				$('div_text_editor').hide();
@@ -11,12 +11,16 @@ var Editor = Class.create({
 	  },
 	toggleTextEditor: function() {
 		if($('content_html')){
-			tinyMCE.get('text_editor').setContent($F('content_html'));
+			tinyMCE.get('text_editor').setContent($('content_html').value);
 			$('div_text_editor').show();
 		}else{
 			$('div_text_editor').hide();
 		}
 	 },
+	
+	hideTextEditor: function() {
+		$('div_text_editor').hide();
+	},
 	
 	getTextEditorValue: function() {
 		if($('content_html')){
@@ -27,5 +31,4 @@ var Editor = Class.create({
 	toogleTab: function() {
 		$('.tabContent').invoke('toggle');
 	}
-	
 });

@@ -25,13 +25,13 @@ class Admin::ContentsController < ApplicationController
     @parent = Content.find(params[:target_id])
     @content = @parent.children.new(params[:content])
     @content.save
-    render "form"
+    render "editor"
   end
   
   def update
     @content = Content.find(params[:id])
     @content.update_attributes(params[:content])
-    render "form"
+    render "editor"
   end
   
   def tree_node
