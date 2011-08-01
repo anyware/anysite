@@ -1,9 +1,9 @@
 function loading(){
-	$("animated_anyware_logo").style.opacity="";
-	$("animated_anyware_logo").show();
+	// $("animated_anyware_logo").style.opacity="";
+	// $("animated_anyware_logo").show();
 }
 function unloading(){
-	Effect.Fade('animated_anyware_logo', {duration: 0.5});
+	// Effect.Fade('animated_anyware_logo', {duration: 0.5});
 }
 
 function showMenu(event, menu_id){

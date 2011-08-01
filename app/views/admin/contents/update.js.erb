@@ -1,0 +1,7 @@
+<%= render :template => '/admin/contents/editor' %>
+<% if @content.parent%>
+	tree.closeFolder('content_<%=@content.parent.id%>');
+	var evt = document.createEvent("HTMLEvents")
+	evt.initEvent('click', true, true );
+	$('content_<%=@content.parent.id%>').down().dispatchEvent(evt);
+<% end %>

@@ -1,1 +1,8 @@
-$("editor").update("<%= escape_javascript(render :partial => 'editor') %>");
+<% id = @content.id.nil? ? 0 : @content.id %>
+var editor_content_<%= id %> = editor.windowFactory('content', <%= id %>, '<%= @content.name %>');
+window_container = editor_content_<%= id %>.container
+window_container.insert("<%= escape_javascript(render :partial => 'editor') %>");
+window_container.down(".window_refresh").insert(window_container.down(".refresh"));
+editor.createTabControl(window_container.down("ul.tabs"), {
+	tabs_container: window_container
+	});

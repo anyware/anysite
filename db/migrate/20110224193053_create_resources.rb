@@ -7,7 +7,6 @@ class CreateResources < ActiveRecord::Migration
       t.integer :updated_by
       t.integer :folder_id
       t.integer :position
-      t.string :name
       t.string :filetype
 
       t.timestamps

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110420023201) do
+ActiveRecord::Schema.define(:version => 20110724145044) do
 
   create_table "content_resources", :force => true do |t|
     t.integer "position"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20110420023201) do
     t.string   "menu"
     t.string   "template"
     t.string   "partial_template"
+    t.string   "slug"
+    t.string   "url"
   end
 
   add_index "contents", ["ancestry"], :name => "index_contents_on_ancestry"

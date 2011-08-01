@@ -1,4 +1,5 @@
 module ContentsHelper
+  
   def getHomepage(content)
     if(content.ancestry)
       homepage_id = @content.ancestry.gsub(/\/.*/,"")

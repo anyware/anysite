@@ -7,14 +7,23 @@
 	<link rel="shortcut icon" href="/favicon.png" type="image/png" />
  <title>Anysite - Admin</title>
 	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag "reset" %>
+	<%= stylesheet_link_tag "generic" %>
 	<%= stylesheet_link_tag "admin/anysite" %>
 	<%= stylesheet_link_tag "admin/tabs" %>
+	<%= stylesheet_link_tag "admin/window" %>
+	<%= stylesheet_link_tag "admin/form" %>
 	<%= stylesheet_link_tag "simpletree" %>
 	<%= stylesheet_link_tag "context_menu" %>
 	<%= javascript_include_tag "admin/Editor" %>
-	<%= javascript_include_tag "Tree" %>
-	<%= javascript_include_tag "context_menu" %>
+	<%= javascript_include_tag "admin/Clipboard" %>
+	<%= javascript_include_tag "admin/Tree" %>
+	<%= javascript_include_tag "admin/context_menu" %>
 	<%= javascript_include_tag "admin/tiny_mce/tiny_mce.js" %>
+	<%= javascript_include_tag "admin/livepipe/livepipe" %>
+	<%= javascript_include_tag "admin/livepipe/window" %>
+	<%= javascript_include_tag "admin/livepipe/resizable" %>
+	<%= javascript_include_tag "admin/livepipe/tabs" %>
 	<%= csrf_meta_tag %>
 </head>
 <body onload="init_admin();">

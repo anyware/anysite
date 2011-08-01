@@ -4,21 +4,20 @@
         <li id="resources_tab" class="tab_header">Resources</li>
         <li id="folders_tab" class="tab_header">Folders</li>
     </ul>
+</div>
+<div id="tabscontent">
+    <div id="main_tab_content" class="tab_content" style="">
+	<%if @folder.id then%>
+		<%= render :partial => 'edit' %>
+	<% else %>
+		<%= render :partial => 'new'%>
+	<% end %>
     </div>
-    <div id="tabscontent">
-        <div id="main_tab_content" class="tab_content" style="">
-					<%if @folder.id then%>
-						<%= render :partial => 'edit' %>
-					<% else %>
-						<%= render :partial => 'new'%>
-					<% end %>
-        </div>
 
-        <div id="resources_tab_content" class="tab_content" style="display:none;">
-            <br /><div><%= render :partial => 'resources' %></div>
-        </div>
-        <div id="folders_tab_content" class="tab_content" style="display:none;">
-            <br /><div><%= render :partial => 'folders' %></div>
-        </div>
+    <div id="resources_tab_content" class="tab_content" style="display:none;">
+        <br /><div><%= render :partial => 'resources' %></div>
+    </div>
+    <div id="folders_tab_content" class="tab_content" style="display:none;">
+        <br /><div><%= render :partial => 'folders' %></div>
     </div>
 </div>

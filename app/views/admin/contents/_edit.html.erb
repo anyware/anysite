@@ -1,3 +1,3 @@
-<% form_tag admin_content_path(@content), :method => :put, :remote => true, :id => 'content_form' do %>
-  <%= render :partial => 'form' %>
+<% form_tag admin_content_path(@content), :method => :put, :remote => true do %>
+  <%= render :partial => inner_form %>
 <% end %>

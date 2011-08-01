@@ -1,4 +1,4 @@
 <% form_tag( admin_contents_path,:remote => true, :id => 'content_form', :class => 'in_target' ) do %>
 	<%= text_field_tag 'target_id', @parent.id%>
-  <%= render :partial => 'form' %>
+  <%= render :partial => 'form_general' %>
 <% end %>

@@ -1,0 +1,27 @@
+
+label {
+	display:block;
+	margin-left:2px;
+}
+
+input {
+	font-size:1em;
+	margin-bottom:4px;
+	margin-top:2px;
+}
+
+input:focus{
+	outline:0;
+}
+
+input[type=text] {
+	background: url(/images/admin/form_input_text.png) 0 0 no-repeat;
+	width:266px;
+	height:37px;
+	border:0;
+	padding-left:4px;
+}
+
+input[type=text]:focus {
+	background: url(/images/admin/form_input_text_focus.png) 0 0 no-repeat;
+}

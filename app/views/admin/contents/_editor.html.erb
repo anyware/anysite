@@ -1,24 +1,38 @@
-<div class="tabs">
-    <ul>
-        <li id="main_tab" class="tabHeaderActive tab_header">Geral</li>
-        <li id="contents_tab" class="tab_header">Contents</li>
-        <li id="resources_tab" class="tab_header" >Resources</li>
-    </ul>
-    </div>
-    <div id="tabscontent">
-        <div id="main_tab_content" class="tab_content" style="">
-					<%if @content.id then%>
-						<%= render :partial => 'edit' %>
-					<% else %>
-						<%= render :partial => 'new'%>
-					<% end %>
-        </div>
-
-        <div id="resources_tab_content" class="tab_content" style="display:none;">
-            <%= render :partial => 'resources' %>
-        </div>
-				<div id="contents_tab_content" class="tab_content" style="display:none;">
-            <%= render :partial => 'contents' %>
-        </div>
-    </div>
+<div id="editor_content_<%= @content.id %>" title="<%= @content.name %>">
+	<%= link_to(image_tag("/images/admin/button_refresh.png"), edit_admin_content_path(@content), :remote => true, :id => "tatata", :class => "refresh") if !@content.id.nil? %>
+	<ul class="tabs">
+		<li id="main_tab" class="first"><a href="#main_tab_content">Geral</a></li>
+		<li id="html_tab"><a href="#html_tab_content">Html</a></li>
+    <li id="contents_tab"><a href="#contents_tab_content">Contents</a></li>
+    <li id="resources_tab" class="last"><a href="#resources_tab_content"><span>Resources</span></a></li>
+	</ul>
+	<br clear="all"/>
+	<div class="hide">
+		<input type="button" id="temp" class="tab_cb_copy cb_copy" value="copy"/>
+		<input type="text" value="content_<%= @content.id %>"/>
+	</div>
+	<div class="hide">
+		<input type="button" value="Import"/>
+		<input id="import_action" type="text" value="/admin/contents/import/<%=@content.id%>/"/>
+	</div>
+	<div id="tabscontent">
+		<%if @content.id then%>
+			<div id="main_tab_content" class="tab_content" style="">
+			<%= render :partial => 'edit', :locals => { :inner_form => 'form_general' }  %>
+	    </div>	
+			<div id="html_tab_content">
+				<%= render :partial => 'edit', :locals => { :inner_form => 'form_html' }  %>
+			</div>
+			<div id="contents_tab_content" class="tab_content" style="display:none;">
+	        <%= render :partial => 'contents' %>
+	    </div>
+	    <div id="resources_tab_content" class="tab_content" style="display:none;">
+	        <%= render :partial => 'resources' %>
+	    </div>
+		<% else %>
+			<div id="main_tab_content" class="tab_content" style="">
+				<%= render :partial => 'new'%>
+			</div>
+		<% end %>
+	</div>
 </div>

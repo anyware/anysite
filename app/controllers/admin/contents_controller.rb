@@ -30,8 +30,16 @@ class Admin::ContentsController < ApplicationController
   
   def update
     @content = Content.find(params[:id])
-    @content.update_attributes(params[:content])
-    render "editor"
+    if(params[:content][:name])
+      old_slug = @content.slug
+      params[:content][:slug]=UrlHelper.slug(params[:content][:name])
+      params[:content][:url]=UrlHelper.url(@content, params[:content][:name])
+    end
+    if @content.update_attributes(params[:content])
+      UrlHelper.update_children_urls(@content) if old_slug != @content.slug
+      puts "Gravado com sucesso"
+    end
+    render "update"
   end
   
   def tree_node
@@ -56,6 +64,10 @@ class Admin::ContentsController < ApplicationController
       # ContentResource.update(id, :position => position+1)
     end
     render :nothing => true
+  end
+  
+  def import
+    Content.find(params[:id]).send(params[:type] + "s") << params[:type].capitalize.constantize.find(params[:object_id])
   end
   
 end

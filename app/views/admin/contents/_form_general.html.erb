@@ -1,0 +1,19 @@
+<!--[form:page]-->
+<p><label for="content_name">Name::<%=@content.slug%>::<%=@content.id%>::<%=@content.ancestry%>::<%=@content.url%></label>
+<%= text_field 'content', 'name', :class => "std_input_text"  %></p>
+
+<p><label for="content_menu">Menu</label>
+<%= text_field 'content', 'menu'  %></p>
+
+<p><label for="content_description">Description</label>
+<%= text_field 'content', 'description'  %></p>
+
+<p><label for="content_template">Template</label>
+<%= text_field 'content', 'template'  %></p>
+
+<p><label for="content_partial_template">Partial Template</label>
+<%= text_field 'content', 'partial_template'  %></p>
+
+<%= submit_tag "Salvar", :name => nil %>
+<!--[eoform:page]-->
+

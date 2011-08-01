@@ -6,4 +6,8 @@ class Admin::AdminController < ApplicationController
     @content = Content.first
     @folder = Folder.first
   end
+  
+  def lorem
+    render :layout => false
+  end
 end

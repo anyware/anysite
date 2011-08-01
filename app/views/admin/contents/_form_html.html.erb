@@ -1,0 +1,9 @@
+<!--[form:page]-->
+<p><label for="content_name">Html</label> <input type="button" class="edit_html" value="edit"/></p>
+<p class="html_output"><%= @content.html.html_safe if @content.html%></p>
+<p><%= text_area 'content', 'html', :id => "editor_content_#{@content.id}_html_input", :class => 'text_editor', :style => 'display:none;'  %>
+</p>
+
+<%= submit_tag "Salvar", :name => nil %>
+<!--[eoform:page]-->
+

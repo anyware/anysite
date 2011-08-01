@@ -1,17 +1,20 @@
 <div class="tabs">
     <ul>
         <li id="main_tab" class="tabHeaderActive tab_header">Geral</li>
-        <li id="main_tab" class="tab_header">q<%= link_to("refresh", edit_admin_resource_path(@resource), :remote => true) if !@resource.id.nil? %></li>
+        <li id="resource_refresh""><%= link_to("refresh", edit_admin_resource_path(@resource), :remote => true) if !@resource.id.nil? %></li>
     </ul>
+</div>
+<div>
+	<input type="button" id="temp" class="tab_cb_copy cb_copy" value="copy"/>
+	<input type="text" value="resources/<%= @resource.id %>"/>
+</div>
+<div id="tabscontent">
+    <div id="main_tab_content" class="tab_content" style="">
+	<%if @resource.id then%>
+		<%= render :partial => 'edit' %>
+	<% else %>
+		<%= render :partial => 'new'%>
+	<% end %>
     </div>
-    <div id="tabscontent">
-        <div id="main_tab_content" class="tab_content" style="">
-					<%if @resource.id then%>
-						<%= render :partial => 'edit' %>
-					<% else %>
-						<%= render :partial => 'new'%>
-					<% end %>
-        </div>
 
-    </div>
 </div>

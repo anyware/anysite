@@ -16,11 +16,17 @@ Anysite::Application.routes.draw do
       match 'contents/order_resources' => 'contents#order_resources'
       match 'folders/order_folders' => 'folders#order_folders'
       match 'folders/order_resources' => 'folders#order_resources'
+      match 'contents/import/:id/:type/:object_id' => "contents#import"
       #, :as => :tree_node
+      match 'lorem' => 'admin#lorem'
   end
   
+  # namespace :site do
+  #   match ':id' => 'contents#show'
+  # end
+  
   namespace :site do
-    match ':id' => 'contents#show'
+    match '*url' => 'contents#by_url'
   end
   
   match 'contact_us' => 'email#contact_us'

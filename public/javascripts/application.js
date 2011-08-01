@@ -5,6 +5,9 @@
 Event.observe(window, 'load', fixedMenuIEOver, false);
 var tree;
 var editor;
+var cb;
+var windows = new Hash();
+var tasks = new Hash();
 /**
  * Function to fixed the IE problem with 'over' 
  */
@@ -26,15 +29,11 @@ function fixedMenuIEOver() {
 	}
 }
 
-
 function init_admin(){
+	
 	tree = new Tree();
 	editor = new Editor();
-	tinyMCE.init({
-	        theme : "advanced",
-	        mode : "exact",
-					elements : "text_editor"
-	});
+	cb = new Clipboard();
 
 	document.on('ajax:before', '.tree_node_icon', function(event) {
 		sublist = $(event.target).up().down('ul');
@@ -56,7 +55,6 @@ function init_admin(){
 		unloading();
 	});
 	document.on('ajax:complete', 'a', function(response) {
-		editor.toggleTextEditor();
 		unloading();
 	});
 	document.on('ajax:failure', 'a', function(response) {
@@ -66,13 +64,10 @@ function init_admin(){
 	
 	document.on('ajax:before', 'form', function(response) {
 		loading();
-		editor.getTextEditorValue();
 	});
 	document.on('ajax:complete', 'form', function(response) {
-		editor.toggleTextEditor();
 		unloading();
-	});
-		
+	});	
 }
 
 

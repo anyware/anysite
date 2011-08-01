@@ -1,23 +1,21 @@
-		<div id="anyware_logo">
-			<div id = "animated_anyware_logo" style="display:none"><img src='/images/logo_animated_75.gif' /></div>
-		</div>
 		<div id="anysite_top"></div>
 		<div id="navigation_menu" class="treeview">
-		<ul id="any_folders" class="treeview">
-			<%= render :partial => '/admin/contents/tree_node_child', :locals => { :subcontent => @content}%>
-		</ul>
-		<ul id="any_files" class="treeview">
-			<%= render :partial => '/admin/folders/tree_node_child', :locals => { :subfolder => @folder } %>
-		</ul>
+			<ul id="any_folders" class="treeview">
+				<%= render :partial => '/admin/contents/tree_node_child', :locals => { :subcontent => @content}%>
+			</ul>
+			<ul id="any_files" class="treeview">
+				<%= render :partial => '/admin/folders/tree_node_child', :locals => { :subfolder => @folder } %>
+			</ul>
 		</div>
+		<div id="taskbar"></div>
+
 
 
 			<div id="editor_area">
 				<div id="editor">
 				</div>
-				<div id="div_text_editor" style="visibility:;display:;">
-					<textarea id="text_editor" name="text_editor"></textarea>
-				</div>
+			</div>
+			<div id="windows">
 			</div>
 
 
@@ -40,7 +38,12 @@
 
 			<div class="menuitems" url="mailto:dynamicdrive@yahoo.com">Email Us</div>
 			</div>
-
+			<div id="clipboard" style="position:absolute;bottom:0px;right:0px;">
+				<div>Clipboard</div>
+				<div id="clipboard_list">
+					123
+				</div>
+			</div>
 			<input id="selected_object" type='text' value="" style="display:none">
 			<input id="right_clicked_item" type='text' value="" style="display:none">
 

@@ -5,8 +5,10 @@
 <%= text_field 'resource', 'description'  %></p>
 
 
+
 <p><label for="resource_source">File</label><br/>
 <% if !@resource.id.nil? and @resource.source_content_type and @resource.source_content_type.include? 'image' then %>
+<%= @resource.source.url%><br/>
 <img src="<%=@resource.source.url(:thumb)%>"/>
 <% end -%>
 <%= file_field 'resource', :source %>

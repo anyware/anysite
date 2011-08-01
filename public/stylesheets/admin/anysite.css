@@ -2,44 +2,90 @@ img {
         border:0pt none;
 }
 
-#anyware_logo{
-	background:url(/images/logo_75.png);
-	position:absolute;
-	top:0px;
-	left:0px;
-	height:75px;
-	width:75px;
-	border-bottom:1px solid gray;
-}
-
 #anysite_top{
 	position:absolute;
 	top:0px;
-	left:75px;
-	height:75px;
-	width:825px;
-	border-bottom:1px solid gray;
+	left:0px;
+	height:47px;
+	width:1050px;
+	background-image:url("/images/admin/bg.png");  
+	box-shadow: 0px 0px 0px 2px #accce8 inset;
+  background-position:top left;  
+  -moz-border-radius: 5px;  
+  -webkit-border-radius: 5px;
+	
 }
 
 #navigation_menu{
 	position:absolute;
-	top:75px;
+	top:50px;
 	left:0px;
-	width:300px;
+	width:197px;
+	height:500px;
+	background-image:url("/images/admin/bg.png");  
+	box-shadow: 0px 0px 0px 2px #accce8 inset;
+  background-position:top left;  
+  -moz-border-radius: 5px;  
+  -webkit-border-radius: 5px;
+}
+
+#taskbar{
+	position:absolute;
+	top:519px;
+	left:200px;
+	height:30px;
+	width:850px;
+	box-shadow: 0px 0px 0px 2px #accce8 inset;
+  background-position:top left;  
+	padding-top:1px;
+	padding-left:2px;
+	background-image:url("/images/admin/bg.png");  
+  -moz-border-radius: 5px;  
+  -webkit-border-radius: 5px;
+	
+}
+
+#taskbar div.task{
+	float:left;
+	border: 1px solid #accce8;
+	padding:3px;
+	margin-top:4px;
+	margin-left:3px;
+	background-color: #accce8;
+}
+
+#taskbar div.task.active{
+	background-color:white;
+}
+
+#taskbar div.task_name {
+	float:left;
+	font-family: arial;
+	font-size:12px;
+  cursor:pointer;
+}
+
+#taskbar div.task_close{
+	background:transparent url(/images/admin/button_close.png) -6px -6px;
+	height:13px;
+	width:13px;
+  cursor:pointer;
+	float:left;
+	margin-left:3px;
 }
 
 #editor_area{
 	position:absolute;
-	top:75px;
-	left:300px;
-	width:600px;
+	top:50px;
+	left:200px;
+	width:850px;
 }
 
 #div_text_editor{
-	width: 600px;
+	width: 850px;
 }
 #text_editor{
-	width: 600px;
+	width: 850px;
 }
 
 .hide {
