@@ -23,6 +23,8 @@ class Admin::ContentsController < ApplicationController
   
   def create
     @parent = Content.find(params[:target_id])
+    gen_slug params
+    gen_url_on_create(params, @parent)
     @content = @parent.children.new(params[:content])
     @content.save
     render "editor"
@@ -32,8 +34,8 @@ class Admin::ContentsController < ApplicationController
     @content = Content.find(params[:id])
     if(params[:content][:name])
       old_slug = @content.slug
-      params[:content][:slug]=UrlHelper.slug(params[:content][:name])
-      params[:content][:url]=UrlHelper.url(@content, params[:content][:name])
+      gen_slug params
+      gen_url params
     end
     if @content.update_attributes(params[:content])
       UrlHelper.update_children_urls(@content) if old_slug != @content.slug
@@ -70,4 +72,18 @@ class Admin::ContentsController < ApplicationController
     Content.find(params[:id]).send(params[:type] + "s") << params[:type].capitalize.constantize.find(params[:object_id])
   end
   
+  private
+  
+  def gen_slug(params)
+    params[:content][:slug]=UrlHelper.slug(params[:content][:name])
+  end
+  
+  def gen_url(params)
+    params[:content][:url]=UrlHelper.url(@content, params[:content][:name]) if params[:id]
+  end
+  
+  def gen_url_on_create(params, parent)
+    params[:content][:url] = parent.url ? parent.url + "/" + params[:content][:slug] : "" + params[:content][:slug]
+  end
+    
 end
