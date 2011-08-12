@@ -5,7 +5,9 @@ Anysite::Application.routes.draw do
       #Directs /admin/templates/* to Admin::TemplatesController
       # (app/controllers/admin/products_controller.rb)
       resources :templates
-      resources :contents
+      resources :contents do
+        resources :comments
+      end
       resources :folders
       resources :resources
       match 'index' => 'admin#index'
