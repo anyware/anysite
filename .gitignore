@@ -12,3 +12,4 @@ config/database.locaweb.yml
 core
 public/system
 solr
+Gemfile.lock
