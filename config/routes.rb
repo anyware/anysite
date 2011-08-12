@@ -19,8 +19,6 @@ Anysite::Application.routes.draw do
       match 'folders/order_folders' => 'folders#order_folders'
       match 'folders/order_resources' => 'folders#order_resources'
       match 'contents/import/:id/:type/:object_id' => "contents#import"
-      #, :as => :tree_node
-      match 'lorem' => 'admin#lorem'
   end
   
   # namespace :site do
