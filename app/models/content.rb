@@ -11,4 +11,10 @@ class Content < ActiveRecord::Base
   validates_uniqueness_of :slug, :scope => :ancestry
   validates_uniqueness_of :url, :scope => :ancestry
   
+  searchable do
+    text :html, :description, :stored => true
+    string :name, :url, :ancestry
+    integer :id
+    integer :parent_id
+  end
 end

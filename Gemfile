@@ -10,7 +10,8 @@ gem 'devise'
 gem 'ancestry'
 gem 'acts_as_list'
 gem 'paperclip'
-
+gem 'sunspot'
+gem 'sunspot_rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

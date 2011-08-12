@@ -1,5 +1,5 @@
 .DS_Store
-log/*.log
+log
 tmp/
 tmp/restart.txt
 config/database.yml
@@ -11,3 +11,4 @@ config/database.locaweb.yml
 .redcar
 core
 public/system
+solr

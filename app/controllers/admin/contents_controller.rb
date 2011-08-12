@@ -70,4 +70,10 @@ class Admin::ContentsController < ApplicationController
     Content.find(params[:id]).send(params[:type] + "s") << params[:type].capitalize.constantize.find(params[:object_id])
   end
   
+  def search
+    @search = Content.search() do
+      keywords(params[:q])
+    end
+  end
+  
 end
